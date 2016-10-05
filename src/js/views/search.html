@@ -1,1 +1,16 @@
-<input type="text" placeholder="Spotify Suche"/>
+<div>
+    <input type="text" 
+        placeholder="Spotify Suche"
+        data-bind="ojComponent: {
+                component: 'ojInputText',
+                value: query
+            }"/>
+    <button id= "button"
+            data-bind=" click: search,
+                        ojComponent: {
+                            component: 'ojButton',
+                            label: 'Suche'
+                        }"></button>
+    <p id="last" class="bold">Query results:</p> 
+    <textarea id="results" data-bind='text: results'></textarea>
+</div>
