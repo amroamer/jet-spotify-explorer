@@ -1,0 +1,8 @@
+.appheader-logo-enpit {
+  width: 106px;
+  height: 40px;
+}
+
+.appheader-logo-enpit:before {
+  content: url("images/enpit_logo_rgb_130x.png");
+}
