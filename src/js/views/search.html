@@ -1,16 +1,40 @@
 <div>
-    <input type="text" 
-        placeholder="Spotify Suche"
-        data-bind="ojComponent: {
+    <input type="text" placeholder="Spotify Suche" data-bind="ojComponent: {
                 component: 'ojInputText',
                 value: query
-            }"/>
-    <button id= "button"
-            data-bind=" click: search,
+            }" />
+    <button id="button" data-bind=" click: search,
                         ojComponent: {
                             component: 'ojButton',
                             label: 'Suche'
-                        }"></button>
-    <p id="last" class="bold">Query results:</p> 
-    <textarea id="results" data-bind='text: results'></textarea>
+                        }">
+    </button>
+    <ul id="listview" aria-label="Query results (list of artists)" data-bind="ojComponent: {
+            component: 'ojListView', 
+            data: dataSource, 
+            selectionMode: 'single',
+            item: {template: 'artist-template'}
+        }">
+    </ul>
 </div>
+
+<script type="text/html" id="artist-template">
+    <li data-bind="attr: {id: id}">
+        <div class="oj-flex" style="flex-wrap: nowrap">
+            <div class="thumbnail-container" data-bind="if: images.length > 0">
+                <div role="img" class="artist-image thumbnail" data-bind="style: { backgroundImage: 'url(\'' + thumbnail.url + '\')' }"></div>
+            </div>
+            <div class="oj-flex-item artist-name">
+                <div>
+                    <button data-bind=" attr: { id: index },
+                                        click: $parent.selectArtist, 
+                                        ojComponent: {
+                                            component: 'ojButton',
+                                            label: name
+                                        }">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </li>
+</script>

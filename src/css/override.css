@@ -6,3 +6,30 @@
 .appheader-logo-enpit:before {
   content: url("images/enpit_logo_rgb_130x.png");
 }
+
+.thumbnail-container {
+  width: 48px;
+}
+
+.thumbnail {
+  width: 48px;
+  height: 48px; 
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 100%;
+}
+
+.artist-name {
+  display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+
+	align-items: center;
+
+  padding-left: 1em;
+}
