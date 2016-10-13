@@ -7,17 +7,25 @@
   content: url("images/enpit_logo_rgb_130x.png");
 }
 
-.thumbnail-container {
-  width: 48px;
+.oj-web-applayout-header-title {
+  margin-left: 10px;
 }
 
-.thumbnail {
-  width: 48px;
-  height: 48px; 
+.artist-image {
   display: inline-block;
   background-repeat: no-repeat;
   background-position: top left;
   background-size: 100%;
+}
+
+.thumbnail, .thumbnail-container {
+  width: 48px;
+  height: 48px;
+}
+
+.cover, .cover-container {
+  width: 256px;
+  height: 256px;
 }
 
 .artist-name {

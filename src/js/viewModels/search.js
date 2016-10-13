@@ -18,6 +18,7 @@ define([
     self.query = ko.observable('');
     self.artists = ko.observableArray([]);
     self.dataSource = new oj.ArrayTableDataSource(self.artists, {idAttribute: "id"});
+    self.selectedArtist = ko.observable({});
 
     self.search = function search () {
       self.artists.removeAll(); // clear previous search results
@@ -25,6 +26,7 @@ define([
         // filter artists
         response.artists.items.forEach(function (artist, index) {
           artist.thumbnail = artist.images.pop();
+          artist.cover = artist.images[0] || artist.thumbnail;
           artist.index = index;
           self.artists.push(artist);
         });
@@ -37,7 +39,8 @@ define([
       var artist, index;
       index = Number(event.currentTarget.id);
       artist = self.artists()[index];
-      console.log('Selected: ' + artist.name);
+      self.selectedArtist(artist);
+      ko.dataFor(document.getElementById('page')).router.go('artist');
     };
   }
   return SearchViewModel;
