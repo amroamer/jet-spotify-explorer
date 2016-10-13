@@ -8,17 +8,26 @@ define(
      * The view model for the Artist module
      */
     function ArtistViewModel() {
-      var addAlbumDetails, searchViewModel, self;
+      var addAlbumDetails, isMostPopularAlbum, searchViewModel, self;
 
       self = this;
       searchViewModel = ko.dataFor(document.getElementById('search'));
+      isMostPopularAlbum = function isMostPopularAlbum (album) {
+        return self.albums().every(function isMostPopular (otherAlbum) {
+          return album.name !== otherAlbum.name
+            || album.popularity > otherAlbum.items[0];
+        });
+      }
       addAlbumDetails = function addAlbumDetails (albumId) {
         spotify.fetchAlbumDetails(albumId).then(
           function onAlbum (album) {
-            self.albums.push({
-              name: album.name,
-              items: [ album.popularity ]
-            });
+            if (isMostPopularAlbum(album)) {
+              self.albums.push({
+                id: album.id,
+                name: album.name,
+                items: [ album.popularity ]
+              });
+            }
           }
         );
       };
