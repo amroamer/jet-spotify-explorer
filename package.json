@@ -7,6 +7,9 @@
     "email": "info@enpit.de",
     "homepage": "http://www.enpit.de"
   },
+  "scripts": {
+    "start": "grunt oraclejet-serve"
+  },
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-bowercopy": "1.2.4",
