@@ -22,14 +22,16 @@ define([
 
     self.search = function search () {
       self.artists.removeAll(); // clear previous search results
-      spotify.search(self.query(), [['type', 'artist']]).then(function onFulfilled (response) {
-        // filter artists
-        response.artists.items.forEach(function (artist, index) {
-          artist.thumbnail = artist.images.pop();
-          artist.cover = artist.images[0] || artist.thumbnail;
-          artist.index = index;
-          self.artists.push(artist);
-        });
+      spotify.search(self.query(), [['type', 'artist']]).then(
+        function onFulfilled (response) {
+          // filter artists
+          response.artists.items.forEach(function (artist, index) {
+            artist.thumbnail = artist.images.pop();
+            artist.cover = artist.images[0] || artist.thumbnail;
+            artist.index = index;
+            self.artists.push(artist);
+          }
+        );
       }, function onRejected (error) {
         console.error(error);
       })
