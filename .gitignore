@@ -11,3 +11,5 @@ hybrid/www/*
 hybrid/plugins/*
 !hybrid/plugins/fetch.json
 
+npm-debug.log
+
