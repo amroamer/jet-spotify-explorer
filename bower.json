@@ -1,8 +1,7 @@
 {
   "name": "enpit-spotify-explorer",
   "version": "1.0.0",
-  "dependencies": 
-  {
+  "dependencies": {
     "oraclejet": "2.1.0"
   }
 }

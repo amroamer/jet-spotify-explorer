@@ -47,7 +47,7 @@ requirejs.config(
 
 require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
          'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojrouter', 'ojs/ojmodule'],
-function(oj, ko, $) {    
+function(oj, ko, $) {
   // Retrieve the router static instance and configure the states
   var router = oj.Router.rootInstance;
   router.configure({
@@ -66,4 +66,3 @@ function(oj, ko, $) {
     });
   });
 });
-
