@@ -14,10 +14,10 @@ define(
       searchViewModel = ko.dataFor(document.getElementById('search'));
       isMostPopularAlbum = function isMostPopularAlbum (album) {
         return self.albums().every(function isMostPopular (otherAlbum) {
-          return album.name !== otherAlbum.name
-            || album.popularity > otherAlbum.items[0];
+          return album.name !== otherAlbum.name ||
+            album.popularity > otherAlbum.items[0];
         });
-      }
+      };
       addAlbumDetails = function addAlbumDetails (albumId) {
         spotify.fetchAlbumDetails(albumId).then(
           function onAlbum (album) {
@@ -25,7 +25,7 @@ define(
               self.albums.push({
                 id: album.id,
                 name: album.name,
-                items: [ album.popularity ]
+                items: [album.popularity]
               });
             }
           }
@@ -43,6 +43,17 @@ define(
           })
         }
       );
+
+      self.selectedAlbums = ko.observableArray([]);
+      self.selectedAlbums.subscribe(function () {
+        ko.dataFor(document.getElementById('page')).router.go('album');
+      });
     }
+
+    // $("#artistChart").on("ojselectinput", function(event, ui){
+    //   console.log(event);
+
+    // });
+
     return ArtistViewModel;
   });

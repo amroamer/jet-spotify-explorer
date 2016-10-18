@@ -11,7 +11,7 @@
   margin-left: 10px;
 }
 
-.artist-image {
+.album-image, .artist-image {
   display: inline-block;
   background-repeat: no-repeat;
   background-position: top left;

@@ -1,10 +1,10 @@
-define(['jquery'], function($) {
+define(['jquery'], function ($) {
   var webserviceUrl = 'https://api.spotify.com/v1/';
 
   /**
    * Search the spotify database for the given query.
-   * @param query the query string that you want to search for
-   * @param options a map (i.e. an array of arrays) containig search options (see https://developer.spotify.com/web-api/console/get-search-item/)
+   * @param {string} query the query string that you want to search for
+   * @param {object} options a map (i.e. an array of arrays) containig search options (see https://developer.spotify.com/web-api/console/get-search-item/)
    * @return {Promise} a promise that resolves with the artists in JSON format
    * or rejects with an error description
    */
@@ -15,7 +15,7 @@ define(['jquery'], function($) {
     }
 
     var q = [query].concat(
-      options.map(function(o) {
+      options.map(function (o) {
         return o[0] + '=' + o[1];
       })
     ).join('&');
@@ -44,7 +44,7 @@ define(['jquery'], function($) {
         method: 'GET'
       }
     );
-  }
+  };
 
   /**
    * Load the details of the specified album.
@@ -59,7 +59,7 @@ define(['jquery'], function($) {
         method: 'GET'
       }
     );
-  }
+  };
 
   return {
     fetchAlbumDetails: fetchAlbumDetails,
