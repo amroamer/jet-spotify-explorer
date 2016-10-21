@@ -7,7 +7,7 @@ define([
   'jquery',
   '../spotify',
   'ojs/ojarraytabledatasource',
-  'ojs/ojinputtext',
+  'ojs/ojselectcombobox',
   'ojs/ojlistview'
 ], function (oj, ko, $, spotify) {
   /**
@@ -15,12 +15,14 @@ define([
    */
   function SearchViewModel () {
     var self = this;
+
     self.query = ko.observable('');
     self.artists = ko.observableArray([]);
-    self.dataSource = new oj.ArrayTableDataSource(self.artists, {idAttribute: "id"});
+    self.dataSource = new oj.ArrayTableDataSource(
+      self.artists, {idAttribute: "id"});
     self.selectedArtist = ko.observable({});
 
-    self.search = function search () {
+    self.query.subscribe(function search () {
       self.artists.removeAll(); // clear previous search results
       spotify.search(self.query(), [['type', 'artist']]).then(
         function onFulfilled (response) {
@@ -30,15 +32,18 @@ define([
             artist.cover = artist.images[0] || artist.thumbnail;
             artist.index = index;
             self.artists.push(artist);
-          }
-        );
-      }, function onRejected (error) {
-        console.error(error);
-      })
-    };
+          });
+        },
+        function onRejected (error) {
+          console.error(error);
+        }
+      );
+    });
 
     self.selectArtist = function selectArtist (data, event) {
-      var artist, index;
+      var artist;
+      var index;
+
       index = Number(event.currentTarget.id);
       artist = self.artists()[index];
       self.selectedArtist(artist);

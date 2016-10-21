@@ -1,15 +1,13 @@
 <div id="search">
     <div>
-        <input type="text" placeholder="Spotify Suche" data-bind="ojComponent: {
-                    component: 'ojInputText',
-                    value: query
-                }" />
-        <button id="button" data-bind=" click: search,
-                            ojComponent: {
-                                component: 'ojButton',
-                                label: 'Suche'
-                            }">
-        </button>
+        <input id="search-input"
+            type="text"
+            placeholder="Spotify Suche"
+            data-bind="ojComponent: {
+                component: 'ojInputSearch',
+                options: [],
+                value: query
+            }" />
         <ul id="listview" aria-label="Query results (list of artists)" data-bind="ojComponent: {
                 component: 'ojListView',
                 data: dataSource,
