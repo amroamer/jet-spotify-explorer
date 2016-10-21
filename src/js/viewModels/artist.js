@@ -1,14 +1,17 @@
 /**
  * Artist module
  */
-define(
-  ['ojs/ojcore', 'knockout', 'jquery', '../spotify', 'ojs/ojchart'],
-  function(oj, ko, $, spotify) {
+define(['ojs/ojcore', 'knockout', 'jquery', '../spotify', 'ojs/ojchart',
+  'ojs/ojrouter'],
+  function (oj, ko, $, spotify) {
     /**
      * The view model for the Artist module
      */
-    function ArtistViewModel() {
-      var addAlbumDetails, isMostPopularAlbum, searchViewModel, self;
+    function ArtistViewModel () {
+      var addAlbumDetails;
+      var isMostPopularAlbum;
+      var searchViewModel;
+      var self;
 
       self = this;
       searchViewModel = ko.dataFor(document.getElementById('search'));
@@ -40,13 +43,13 @@ define(
         function onAlbums (response) {
           response.items.forEach(function (albumSummary) {
             addAlbumDetails(albumSummary.id);
-          })
+          });
         }
       );
 
       self.selectedAlbums = ko.observableArray([]);
       self.selectedAlbums.subscribe(function () {
-        ko.dataFor(document.getElementById('page')).router.go('album');
+        oj.Router.rootInstance.go('album');
       });
     }
 

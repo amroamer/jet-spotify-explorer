@@ -8,7 +8,9 @@ define(
      * The view model for the Album module
      */
     function AlbumViewModel () {
-      var selectedAlbum = ko.dataFor(document.getElementById('artist')).selectedAlbums()[0];
+      var selectedAlbum = ko.dataFor(
+        document.getElementById('artist')
+      ).selectedAlbums()[0];
       var self = this;
       self.album = ko.observable({
         loading: true
@@ -33,7 +35,7 @@ define(
               name: track.name,
               items: [Number(track.duration_ms) / 1000]
             });
-          })
+          });
         }
       );
     }

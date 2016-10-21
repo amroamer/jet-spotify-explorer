@@ -1,18 +1,35 @@
 /**
  * Header module
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout'], function (oj, ko, $) {
+define(
+  ['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojrouter'],
+  function (oj, ko, $) {
     /**
      * The view model for the header module
      */
-  function HeaderViewModel () {
-    var self = this;
-    self.title = ko.observable('JET Spotify Explorer');
+    function HeaderViewModel () {
+      var router;
+      var self = this;
 
-    // Media Queries for repsonsive header and navigation
-    // Create small screen media query to update button menu display
-    var smQuery = oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.SM_ONLY);
-    self.smScreen = oj.ResponsiveKnockoutUtils.createMediaQueryObservable(smQuery);
+      router = oj.Router.rootInstance;
+
+      self.title = ko.observable('JET Spotify Explorer');
+
+      // Media Queries for repsonsive header and navigation
+      // Create small screen media query to update button menu display
+      var smQuery = oj.ResponsiveUtils.getFrameworkQuery(
+        oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.SM_ONLY);
+      self.smScreen = oj.ResponsiveKnockoutUtils.createMediaQueryObservable(
+        smQuery);
+
+      self.displayBackButton = ko.observable(false);
+      oj.Router.transitionedToState.add(function () {
+        self.displayBackButton(router.stateId() !== 'search');
+      });
+      self.goBack = function goBack () {
+        window.history.back();
+      };
+    }
+    return HeaderViewModel;
   }
-  return HeaderViewModel;
-});
+);
