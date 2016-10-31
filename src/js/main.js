@@ -53,7 +53,8 @@ function(oj, ko, $) {
   router.configure({
     'search':  { label: 'Suche', isDefault: true },
     'artist': { label: 'Interpret' },
-    'album': { label: 'Album' }
+    'album': { label: 'Album' },
+    'add-artist': { label: 'Add Artist' }
   });
 
   var viewModel = {

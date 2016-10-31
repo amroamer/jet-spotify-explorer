@@ -29,6 +29,9 @@ define(
       self.goBack = function goBack () {
         window.history.back();
       };
+      self.goAddArtist = function goAddArtist () {
+        router.go('add-artist');
+      };
     }
     return HeaderViewModel;
   }
