@@ -30,7 +30,8 @@ requirejs.config(
       'ojL10n': 'libs/oj/v2.1.0/ojL10n',
       'ojtranslations': 'libs/oj/v2.1.0/resources',
       'text': 'libs/require/text',
-      'signals': 'libs/js-signals/signals'
+      'signals': 'libs/js-signals/signals',
+      'knockout-postbox': 'libs/knockout-postbox/knockout-postbox'
     }
     //endinjector
     ,
@@ -45,8 +46,9 @@ requirejs.config(
   }
 );
 
-require(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout',
-         'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojrouter', 'ojs/ojmodule'],
+require(['ojs/ojcore', 'knockout', 'jquery', 'knockout-postbox',
+         'ojs/ojknockout', 'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojrouter',
+         'ojs/ojmodule'],
 function(oj, ko, $) {
   // Retrieve the router static instance and configure the states
   var router = oj.Router.rootInstance;

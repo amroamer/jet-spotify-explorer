@@ -1,8 +1,8 @@
 /**
  * Artist module
  */
-define(['ojs/ojcore', 'knockout', 'jquery', '../spotify', 'ojs/ojchart',
-  'ojs/ojrouter'],
+define(['ojs/ojcore', 'knockout', 'jquery', '../spotify', 'knockout-postbox',
+  'ojs/ojchart', 'ojs/ojrouter'],
   function (oj, ko, $, spotify) {
     /**
      * The view model for the Artist module
@@ -10,11 +10,9 @@ define(['ojs/ojcore', 'knockout', 'jquery', '../spotify', 'ojs/ojchart',
     function ArtistViewModel () {
       var addAlbumDetails;
       var isMostPopularAlbum;
-      var searchViewModel;
       var self;
 
       self = this;
-      searchViewModel = ko.dataFor(document.getElementById('search'));
       isMostPopularAlbum = function isMostPopularAlbum (album) {
         return self.albums().every(function isMostPopular (otherAlbum) {
           return album.name !== otherAlbum.name ||
@@ -35,7 +33,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', '../spotify', 'ojs/ojchart',
         );
       };
 
-      self.artist = searchViewModel.selectedArtist;
+      self.artist = ko.observable().subscribeTo('selectedArtist', true);
 
       self.albums = ko.observableArray([]);
 
@@ -47,7 +45,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', '../spotify', 'ojs/ojchart',
         }
       );
 
-      self.selectedAlbums = ko.observableArray([]);
+      self.selectedAlbums = ko.observableArray([]).publishOn('selectedAlbums');
       self.selectedAlbums.subscribe(function () {
         oj.Router.rootInstance.go('album');
       });

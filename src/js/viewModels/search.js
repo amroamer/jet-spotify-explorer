@@ -6,6 +6,7 @@ define([
   'knockout',
   'jquery',
   '../spotify',
+  'knockout-postbox',
   'ojs/ojarraytabledatasource',
   'ojs/ojselectcombobox',
   'ojs/ojlistview'
@@ -20,7 +21,7 @@ define([
     self.artists = ko.observableArray([]);
     self.dataSource = new oj.ArrayTableDataSource(
       self.artists, {idAttribute: "id"});
-    self.selectedArtist = ko.observable({});
+    self.selectedArtist = ko.observable({}).publishOn('selectedArtist');
 
     self.query.subscribe(function search () {
       self.artists.removeAll(); // clear previous search results
@@ -47,7 +48,7 @@ define([
       index = Number(event.currentTarget.id);
       artist = self.artists()[index];
       self.selectedArtist(artist);
-      ko.dataFor(document.getElementById('page')).router.go('artist');
+      oj.Router.rootInstance.go('artist');
     };
   }
   return SearchViewModel;

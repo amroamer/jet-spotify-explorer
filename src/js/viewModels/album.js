@@ -8,9 +8,13 @@ define(
      * The view model for the Album module
      */
     function AlbumViewModel () {
-      var selectedAlbum = ko.dataFor(
-        document.getElementById('artist')
-      ).selectedAlbums()[0];
+      var selectedAlbum = ko.observable({}).subscribeTo(
+        'selectedAlbums',
+        true,
+        function transform (selectedAlbums) {
+          return selectedAlbums[0];
+        }
+      );
       var self = this;
       self.album = ko.observable({
         loading: true
@@ -18,7 +22,7 @@ define(
 
       self.tracksLength = ko.observableArray([]);
 
-      spotify.fetchAlbumDetails(selectedAlbum.series).then(
+      spotify.fetchAlbumDetails(selectedAlbum().series).then(
         function onAlbum (response) {
           self.album({
             artist: response.artists[0].name,
