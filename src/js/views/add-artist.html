@@ -20,6 +20,7 @@
                     component: 'ojSelect',
                     value: genre
                 }">
+                <option value="default" selected="true">Bitte wählen</option>
                 <option value="rock">Rock</option>
                 <option value="pop">Pop</option>
                 <option value="schlager">Schlager</option>
@@ -30,7 +31,7 @@
                 <input id="yearControl" data-bind="ojComponent: {
                     component: 'ojInputNumber',
                     value: year,
-                    required: true,
+                    required: false,
                     invalidComponentTracker: tracker,
                     max: 2050,
                     min: 1800,
@@ -50,7 +51,8 @@
             <div class="oj-flex-item">
                 <button id="add-artist-button" class="oj-button oj-button-confirm" data-bind="click: save, ojComponent: {
                     component: 'ojButton',
-                    label: 'Speichern'
+                    label: 'Speichern',
+                    disabled: shouldDisableAdd()
                 }">
             </button>
             </div>
