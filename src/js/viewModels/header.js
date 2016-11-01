@@ -23,8 +23,11 @@ define(
         smQuery);
 
       self.displayBackButton = ko.observable(false);
+      self.displayAddArtistButton = ko.observable(true);
+
       oj.Router.transitionedToState.add(function () {
         self.displayBackButton(router.stateId() !== 'search');
+        self.displayAddArtistButton(router.stateId() !== 'add-artist');
       });
       self.goBack = function goBack () {
         window.history.back();

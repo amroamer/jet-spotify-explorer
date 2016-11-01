@@ -1,1 +1,63 @@
-<h1>Add Artist</h1>
+<h1>Interpret hinzufügen</h1>
+<div class="oj-form oj-md-odd-cols-4 oj-md-labels-inline">
+    <div class="oj-row">
+        <div class="oj-col">
+            <label for="nameControl">Name:<sup>*</sup></label>
+        </div>
+        <div class="oj-col">
+            <input name="nameControl"
+                required
+                placeholder="Name des Interpreten"
+                data-bind="ojComponent: {
+                    component: 'ojInputText',
+                    value: name,
+                    required: true,
+                    invalidComponentTracker: tracker,
+                    rootAttributes: {style:'max-width:100%'}
+                }">
+        </div>
+    </div>
+    <div class="oj-row">
+        <div class="oj-col">
+            <label for="genreControl">Genre:<sup>*</sup></label>
+        </div>
+        <div class="oj-col">
+            <select name="genreControl"
+                required
+                data-bind="ojComponent: {
+                    component: 'ojSelect',
+                    value: genre,
+                    rootAttributes: {style:'max-width:20em'}}">
+                <option value="rock">Rock</option>
+                <option value="pop">Pop</option>
+                <option value="schlager">Schlager</option>
+            </select>
+        </div>
+    </div>
+    <div class="oj-row">
+        <div class="oj-col">
+            <label for="yearControl">Gründungsjahr:</label>
+        </div>
+        <div class="oj-col">
+            <input name="yearControl"
+                data-bind="ojComponent: {
+                    component: 'ojInputNumber',
+                    value: year,
+                    required: true,
+                    invalidComponentTracker: tracker,
+                    rootAttributes: {style:'max-width:100%'}
+                }">
+        </div>
+    </div>
+    <div class="oj-row">
+        <div class="oj-col">
+            <button id="add-artist-button"
+                class="oj-button oj-button-confirm"
+                data-bind="click: save, ojComponent: {
+                    component: 'ojButton',
+                    label: 'Speichern'
+                }">
+            </button>
+        </div>
+    </div>
+</div>

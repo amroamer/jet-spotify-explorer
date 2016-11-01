@@ -38,7 +38,7 @@ requirejs.config(
     // Shim configurations for modules that do not expose AMD
     shim:
     {
-      'jquery':
+      jquery:
       {
         exports: ['jQuery', '$']
       }
@@ -49,14 +49,18 @@ requirejs.config(
 require(['ojs/ojcore', 'knockout', 'jquery', 'knockout-postbox',
          'ojs/ojknockout', 'ojs/ojtoolbar', 'ojs/ojbutton', 'ojs/ojrouter',
          'ojs/ojmodule'],
-function(oj, ko, $) {
+function (oj, ko, $) {
   // Retrieve the router static instance and configure the states
   var router = oj.Router.rootInstance;
   router.configure({
-    'search':  { label: 'Suche', isDefault: true },
-    'artist': { label: 'Interpret' },
-    'album': { label: 'Album' },
-    'add-artist': { label: 'Add Artist' }
+    'search': {label: 'Suche', isDefault: true},
+    'artist': {label: 'Interpret'},
+    'album': {label: 'Album'},
+    'add-artist': {label: 'Add Artist'}
+  });
+
+  ko.postbox.subscribe('add-artist', function onAddArtist (newArtist) {
+    console.log(newArtist);
   });
 
   var viewModel = {
