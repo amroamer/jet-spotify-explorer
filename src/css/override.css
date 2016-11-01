@@ -1,3 +1,7 @@
+body {
+  width: 600px;
+}
+
 .appheader-logo-enpit {
   width: 106px;
   height: 40px;
@@ -28,6 +32,7 @@
   height: 256px;
 }
 
+/* the following is not recommended - directly declare oj-flex classes in your html instead */
 .artist-name {
   display: -ms-flexbox;
 	display: -webkit-flex;
@@ -45,4 +50,8 @@
 .add-artist-button .oj-button-text {
   margin-bottom: 2px;
   font-weight: bold;
+}
+
+div#add-artist-container .oj-flex .oj-flex-item:nth-child(2) {
+  margin-left: 1em;
 }
