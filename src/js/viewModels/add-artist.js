@@ -73,6 +73,15 @@ define([
         window.history.back();
       }
     };
+
+    /**
+     * Custom validator for the genre select-control
+     */
+    self.noDefault = {
+      validate: function validate (value) {
+        return value !== 'default';
+      }
+    };     
   }
   return AddArtistViewModel;
 });

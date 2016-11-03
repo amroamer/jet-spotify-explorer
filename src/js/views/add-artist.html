@@ -18,7 +18,8 @@
                 <label for="genreControl">Genre:<sup>*</sup></label>
                 <select id="genreControl" required data-bind="ojComponent: {
                     component: 'ojSelect',
-                    value: genre
+                    value: genre,
+                    validator: [noDefault]
                 }">
                 <option value="default" selected="true">Bitte wählen</option>
                 <option value="rock">Rock</option>
