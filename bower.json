@@ -2,6 +2,7 @@
   "name": "enpit-spotify-explorer",
   "version": "1.0.0",
   "dependencies": {
-    "oraclejet": "2.1.0"
+    "oraclejet": "2.1.0",
+    "knockout-postbox": "^0.5.2"
   }
 }
