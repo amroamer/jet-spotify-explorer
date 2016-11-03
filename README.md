@@ -16,6 +16,7 @@ git clone https://github.com/enpit/jet-spotify-explorer
 npm i
 bower install
 grunt bowercopy
+grunt build
 ```
 
 ## Run
