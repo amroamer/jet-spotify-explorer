@@ -18,10 +18,13 @@ define([
     var self = this;
 
     self.query = ko.observable('');
-    self.artists = ko.observableArray([]);
+    self.artists = ko.observableArray([]).syncWith('searchResults', true);
     self.dataSource = new oj.ArrayTableDataSource(
       self.artists, {idAttribute: "id"});
-    self.selectedArtist = ko.observable({}).publishOn('selectedArtist');
+    self.selectedArtist = ko.observable({
+      // mock an artist s.t. the artist ViewModel does not crash
+      images: []
+    }).publishOn('selectedArtist');
 
     self.query.subscribe(function search () {
       self.artists.removeAll(); // clear previous search results
