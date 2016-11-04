@@ -60,7 +60,9 @@ function (oj, ko, $) {
   });
 
   ko.postbox.subscribe('add-artist', function onAddArtist (newArtist) {
-    console.log(newArtist);
+    // normally, you would save the artist to a database (e.g. via REST call)
+    // for now, just print the artist to the user
+    alert(JSON.stringify(newArtist));
   });
 
   var viewModel = {
