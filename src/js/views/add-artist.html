@@ -4,7 +4,7 @@
         <div class="oj-flex">
             <div class="oj-flex-item">
                 <label for="nameControl">Name:</label>
-                <input id="nameControl" required placeholder="Name des Interpreten" data-bind="ojComponent: {
+                <input id="nameControl" placeholder="Name des Interpreten" data-bind="ojComponent: {
                     component: 'ojInputText',
                     value: name,
                     required: true,
@@ -16,8 +16,9 @@
         <div class="oj-flex">
             <div class="oj-flex-item">
                 <label for="genreControl">Genre:</label>
-                <select id="genreControl" required data-bind="ojComponent: {
+                <select id="genreControl" data-bind="ojComponent: {
                     component: 'ojSelect',
+                    required: true,
                     value: genre,
                     validator: [noDefault]
                 }">
