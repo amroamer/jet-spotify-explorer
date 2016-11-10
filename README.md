@@ -1,6 +1,10 @@
 # jet-spotify-explorer
 Explore Spotify's music database using this JET webapp. Sample app for our JET workshop.
 
+## Try it out
+
+[Demo](https://enpit.github.io/jet-spotify-explorer/web/) hosted on Github Pages.
+
 ## Prerequsites
 
 * npm
