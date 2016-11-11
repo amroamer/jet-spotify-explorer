@@ -2,7 +2,7 @@
  * Album module
  */
 define(
-  ['ojs/ojcore', 'knockout', 'jquery', '../spotify', 'ojs/ojchart'],
+  ['ojs/ojcore', 'knockout', 'jquery', 'spotify', 'ojs/ojchart'],
   function (oj, ko, $, spotify) {
     /**
      * The view model for the Album module

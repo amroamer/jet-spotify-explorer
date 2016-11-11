@@ -1,7 +1,7 @@
 /**
  * Artist module
  */
-define(['ojs/ojcore', 'knockout', 'jquery', '../spotify', 'knockout-postbox',
+define(['ojs/ojcore', 'knockout', 'jquery', 'spotify', 'knockout-postbox',
   'ojs/ojchart', 'ojs/ojrouter'],
   function (oj, ko, $, spotify) {
     /**

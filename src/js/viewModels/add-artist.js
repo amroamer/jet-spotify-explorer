@@ -5,7 +5,7 @@ define([
   'ojs/ojcore',
   'knockout',
   'jquery',
-  '../spotify',
+  'spotify',
   'knockout-postbox',
   'ojs/ojbutton',
   'ojs/ojinputnumber',
@@ -81,7 +81,7 @@ define([
       validate: function validate (value) {
         return value !== 'default';
       }
-    };     
+    };
   }
   return AddArtistViewModel;
 });
