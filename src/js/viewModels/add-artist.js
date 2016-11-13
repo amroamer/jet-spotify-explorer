@@ -20,7 +20,7 @@ define([
     var self = this;
 
     self.name = ko.observable('');
-    self.genre = ko.observableArray(['rock']);
+    self.genre = ko.observableArray(['default']);
     self.year = ko.observable(new Date().getFullYear());
 
     self.tracker = ko.observable();
