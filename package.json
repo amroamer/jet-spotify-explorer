@@ -8,6 +8,8 @@
     "homepage": "http://www.enpit.de"
   },
   "scripts": {
+    "copylibs": "grunt bowercopy && grunt build",
+    "postinstall": "bower install && npm run copylibs",
     "start": "grunt oraclejet-serve"
   },
   "devDependencies": {
