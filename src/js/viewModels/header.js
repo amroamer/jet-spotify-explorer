@@ -23,10 +23,12 @@ define(
         smQuery);
 
       self.displayBackButton = ko.observable(false);
+      self.displayCreateAccountButton = ko.observable(true);
       self.displayAddArtistButton = ko.observable(true);
 
       oj.Router.transitionedToState.add(function () {
         self.displayBackButton(router.stateId() !== 'search');
+        self.displayCreateAccountButton(!self.displayBackButton());
         self.displayAddArtistButton(router.stateId() !== 'add-artist');
       });
       self.goBack = function goBack () {
@@ -34,6 +36,9 @@ define(
       };
       self.goAddArtist = function goAddArtist () {
         router.go('add-artist');
+      };
+      self.goCreateAccount = function goCreateAccount () {
+        router.go('create-account');
       };
     }
     return HeaderViewModel;

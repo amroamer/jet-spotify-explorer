@@ -127,6 +127,7 @@ module.exports = function (grunt)
       files:
       {
         "knockout-postbox/knockout-postbox.js": "knockout-postbox/build/knockout-postbox.js",
+        "address-form-oraclejet": "address-form-oraclejet",
         "es6-promise/es6-promise.js": "es6-promise/es6-promise.js",
         "es6-promise/es6-promise.min.js": "es6-promise/es6-promise.min.js",
         "hammer/hammer-<%= grunt.config.data.bowercopy.options.versions.hammerVersion %>.js": "hammerjs/hammer.js",

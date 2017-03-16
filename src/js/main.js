@@ -28,7 +28,9 @@ requirejs.config(
       'text': 'libs/require/text',
       'signals': 'libs/js-signals/signals',
       'knockout-postbox': 'libs/knockout-postbox/knockout-postbox',
-      'spotify': 'spotify'
+      'spotify': 'spotify',
+      'address-form-oraclejet': 'libs/address-form-oraclejet',
+      'css': 'libs/require-css/css'
     }
     //endinjector
     ,
@@ -55,7 +57,8 @@ require(
       'search': {label: 'Suche', isDefault: true},
       'artist': {label: 'Interpret'},
       'album': {label: 'Album'},
-      'add-artist': {label: 'Add Artist'}
+      'add-artist': {label: 'Add Artist'},
+      'create-account': {label: 'Create Account'}
     });
 
     var viewModel = {
