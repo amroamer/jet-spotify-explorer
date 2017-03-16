@@ -2,7 +2,7 @@
  * Header module
  */
 define(
-  ['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojrouter'],
+  ['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojrouter', 'ojs/ojbutton'],
   function (oj, ko, $) {
     /**
      * The view model for the header module

@@ -63,8 +63,9 @@ require(
     };
 
     $(document).ready(function () {
-      oj.Router.sync();
-      ko.applyBindings(viewModel, document.getElementById('page'));
+      oj.Router.sync().then(function () {
+        ko.applyBindings(viewModel, document.getElementById('page'));
+      });
     });
   }
 );
