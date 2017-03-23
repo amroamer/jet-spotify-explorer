@@ -30,6 +30,7 @@
   },
   "private": true,
   "dependencies": {
+    "knockout-postbox": "^0.5.2",
     "oraclejet": "^3.0.0"
   }
 }
