@@ -8,12 +8,11 @@
     "homepage": "http://www.enpit.de"
   },
   "scripts": {
-    "copylibs": "grunt bowercopy && grunt build",
     "start": "grunt oraclejet-serve",
     "build:image": "docker build -t enpit/jet-spotify-app .",
     "remove:image": "docker rmi enpit/jet-spotify-app",
     "start:container": "docker run --name enpit-jet-spotify-app -p 8080:80 -d enpit/jet-spotify-app",
-    "stop:container": "docker rm -f enpit-jet-spotify-app"
+    "stop:container": "docker rm -f enpit-jet-spotify-app"    
   },
   "devDependencies": {
     "eslint": "^3.7.1",
@@ -25,7 +24,8 @@
     "oraclejet-tooling": "3.0.0"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4.0.0",
+    "npm": ">=3.0.0"
   },
   "private": true,
   "dependencies": {
