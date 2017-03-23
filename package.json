@@ -9,7 +9,6 @@
   },
   "scripts": {
     "copylibs": "grunt bowercopy && grunt build",
-    "postinstall": "bower install && npm run copylibs",
     "start": "grunt oraclejet-serve",
     "build:image": "docker build -t enpit/jet-spotify-app .",
     "remove:image": "docker rmi enpit/jet-spotify-app",
