@@ -5,7 +5,7 @@
             visible: displayCreateAccountButton,
             ojComponent: {
               component:'ojButton',
-              label: 'Create Account'
+              label: labelCreateAccount
             }">
         </button>
         <button class="backButton" data-bind="
@@ -23,6 +23,16 @@
         <h1 class="oj-web-applayout-header-title" title="Application Name" data-bind="text: title"></h1>
     </div>
     <div class="oj-flex-bar-end">
+        <select id="langSelect" data-bind="ojComponent: {component: 'ojSelect',
+                                                    value: lang,
+                                                    optionChange: langValueChanged,
+                                                    rootAttributes: {style:'max-width:20em'}}">
+            <option value="ar">Arabic</option>
+            <option value="de-DE">Deutsch</option>
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+        </select>
+
         <button class="add-artist-button"
                 data-bind="
                     click: goAddArtist,

@@ -2,7 +2,8 @@
  * Header module
  */
 define(
-  ['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojrouter', 'ojs/ojbutton'],
+  ['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojrouter',
+   'ojs/ojbutton', 'ojs/ojselectcombobox'],
   function (oj, ko, $) {
     /**
      * The view model for the header module
@@ -13,7 +14,10 @@ define(
 
       router = oj.Router.rootInstance;
 
+      // Labels
       self.title = ko.observable('JET Spotify Explorer');
+      self.labelCreateAccount = ko.observable(
+        oj.Translations.getTranslatedString('create-account'));
 
       // Media Queries for repsonsive header and navigation
       // Create small screen media query to update button menu display
@@ -39,6 +43,31 @@ define(
       };
       self.goCreateAccount = function goCreateAccount () {
         router.go('create-account');
+      };
+
+      // i18n - default language
+      self.lang = ko.observable($('html').attr('lang'));
+      // i18n - language changed
+      self.langValueChanged = function (context, option) {
+        var newLang = String(option.value);
+        if (!newLang || newLang.length === 0) {
+          return;
+        }
+        oj.Config.setLocale(newLang,
+          function () {
+            self.lang(newLang);
+            console.log("change lang to '" + newLang + "'");
+            if (newLang === 'ar') {
+              $('html').attr('dir', 'rtl');
+            } else {
+              $('html').attr('dir', 'ltr');
+            }
+
+            // update i18n text
+            self.labelCreateAccount(
+              oj.Translations.getTranslatedString('create-account'));
+          }
+        );
       };
     }
     return HeaderViewModel;
