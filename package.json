@@ -12,7 +12,7 @@
     "build:image": "docker build -t enpit/jet-spotify-app .",
     "remove:image": "docker rmi enpit/jet-spotify-app",
     "start:container": "docker run --name enpit-jet-spotify-app -p 8080:80 -d enpit/jet-spotify-app",
-    "stop:container": "docker rm -f enpit-jet-spotify-app"    
+    "stop:container": "docker rm -f enpit-jet-spotify-app"
   },
   "devDependencies": {
     "eslint": "^3.7.1",
@@ -29,6 +29,7 @@
   },
   "private": true,
   "dependencies": {
+    "address-form-oraclejet": "^0.2.0",
     "knockout-postbox": "^0.5.2",
     "oraclejet": "^3.0.0"
   }

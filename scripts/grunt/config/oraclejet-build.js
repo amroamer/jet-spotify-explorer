@@ -39,6 +39,17 @@ module.exports = function (grunt) {
           cwd: 'node_modules/knockout-postbox/src',
           src: ['*.js'], // wild card match all js files
           dest: 'web/js/libs/knockout-postbox'
+        },
+        {
+          cwd: 'node_modules/address-form-oraclejet',
+          src: [
+            'loader.js',
+            'address-form.js',
+            'address-form.json',
+            'address-form.css',
+            'address-form.html'
+          ],
+          dest: 'web/js/libs/address-form-oraclejet'
         }
       ]
     },

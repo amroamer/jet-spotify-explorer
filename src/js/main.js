@@ -31,9 +31,8 @@ requirejs.config(
       'proj4': 'libs/proj4js/dist/proj4-src',
       'css': 'libs/require-css/css',
       'knockout-postbox': 'libs/knockout-postbox/knockout-postbox',
-      'spotify': 'spotify'
-      // TODO: Re-enable once we publish on npm (also in the .json config)
-      // 'address-form-oraclejet': 'libs/address-form-oraclejet'
+      'spotify': 'spotify',
+      'address-form-oraclejet': 'libs/address-form-oraclejet'
     }
     //endinjector
     ,
