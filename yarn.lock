@@ -428,9 +428,15 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-google:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-google/-/eslint-config-google-0.6.0.tgz#c542ec18fb3247983ac16bba31662d01625b763f"
+eslint-config-enpit-jet@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-enpit-jet/-/eslint-config-enpit-jet-1.0.0.tgz#3ebd9bf106049388243720010eb1744fea81d2bc"
+  dependencies:
+    eslint-config-google "^0.5.0"
+
+eslint-config-google@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-google/-/eslint-config-google-0.5.0.tgz#5b7af1a6666d5ef584077769d75bd1394082e557"
   dependencies:
     eslint-config-xo "^0.13.0"
 

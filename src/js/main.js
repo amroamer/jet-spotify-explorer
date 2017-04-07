@@ -14,7 +14,7 @@ requirejs.config(
 
     // Path mappings for the logical module names
     paths:
-    //injector:mainReleasePaths
+    // injector:mainReleasePaths
     {
       'knockout': 'libs/knockout/knockout-3.4.0.debug',
       'jquery': 'libs/jquery/jquery-3.1.1',
@@ -33,9 +33,8 @@ requirejs.config(
       'knockout-postbox': 'libs/knockout-postbox/knockout-postbox',
       'spotify': 'spotify',
       'address-form-oraclejet': 'libs/address-form-oraclejet'
-    }
-    //endinjector
-    ,
+    },    // endinjector
+
     // Shim configurations for modules that do not expose AMD
     shim:
     {
