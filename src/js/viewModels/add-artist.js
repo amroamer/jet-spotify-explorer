@@ -4,15 +4,13 @@
 define([
   'ojs/ojcore',
   'knockout',
-  'jquery',
-  'spotify',
   'knockout-postbox',
   'ojs/ojbutton',
   'ojs/ojinputnumber',
   'ojs/ojinputtext',
   'ojs/ojknockout-validation',
   'ojs/ojselectcombobox'
-], function (oj, ko, $, spotify) {
+], function (oj, ko) {
   /**
    * The view model for the add-artist module
    */
