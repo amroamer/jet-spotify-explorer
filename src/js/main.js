@@ -14,6 +14,7 @@ requirejs.config(
 
     // Path mappings for the logical module names
     paths:
+    // eslint-disable-next-line spaced-comment
     //injector:mainReleasePaths
     {
       'knockout': 'libs/knockout/knockout-3.4.0.debug',
@@ -34,7 +35,9 @@ requirejs.config(
       'spotify': 'spotify',
       'address-form-oraclejet': 'libs/address-form-oraclejet'
     }
+    // eslint-disable-next-line spaced-comment
     //endinjector
+    // eslint-disable-next-line comma-style
     ,
     // Shim configurations for modules that do not expose AMD
     shim:
