@@ -1,5 +1,5 @@
 module.exports = {
-    "extends": "eslint-config-google",
+    "extends": "eslint-config-enpit-jet",
     "env": {
         "browser": true,
         "amd": true
