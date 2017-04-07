@@ -3,7 +3,7 @@
  */
 define(
   ['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojrouter',
-   'ojs/ojbutton', 'ojs/ojselectcombobox'],
+    'ojs/ojbutton', 'ojs/ojselectcombobox'],
   function (oj, ko, $) {
     /**
      * The view model for the header module
