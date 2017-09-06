@@ -58,8 +58,8 @@ requirejs.config(
 );
 
 function getPagePath (page) {
-    // NOTE: Does not support nested pages
-    return page + '/' + page;
+  // NOTE: Does not support nested pages
+  return page + '/' + page;
 }
 
 require(
