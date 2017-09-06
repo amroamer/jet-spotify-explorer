@@ -57,20 +57,28 @@ requirejs.config(
   }
 );
 
+function getPagePath (page) {
+    // NOTE: Does not support nested pages
+    return page + '/' + page;
+}
+
 require(
   [
     'ojs/ojcore', 'knockout', 'jquery', 'knockout-postbox',
     'ojs/ojknockout', 'ojs/ojrouter', 'ojs/ojmodule'
   ],
   function (oj, ko, $) {
+    oj.ModuleBinding.defaults.modelPath = './';
+    oj.ModuleBinding.defaults.viewPath = 'text!./';
+
     // Retrieve the router static instance and configure the states
     var router = oj.Router.rootInstance;
     router.configure({
-      'search': {label: 'Suche', isDefault: true},
-      'artist': {label: 'Interpret'},
-      'album': {label: 'Album'},
-      'add-artist': {label: 'Add Artist'},
-      'create-account': {label: 'Create Account'}
+      'search': {value: getPagePath('search'), label: 'Suche', isDefault: true},
+      'artist': {value: getPagePath('artist'), label: 'Interpret'},
+      'album': {value: getPagePath('album'), label: 'Album'},
+      'add-artist': {value: getPagePath('add-artist'), label: 'Add Artist'},
+      'create-account': {value: getPagePath('create-account'), label: 'Create Account'}
     });
 
     var viewModel = {
