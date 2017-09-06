@@ -65,7 +65,7 @@ function getPagePath (page) {
 require(
   [
     'ojs/ojcore', 'knockout', 'jquery', 'knockout-postbox',
-    'ojs/ojknockout', 'ojs/ojrouter', 'ojs/ojmodule'
+	'ojs/ojknockout', 'ojs/ojrouter', 'ojs/ojmodule', 'ojs/ojmoduleanimations'
   ],
   function (oj, ko, $) {
     oj.ModuleBinding.defaults.modelPath = './';
@@ -81,11 +81,28 @@ require(
       'create-account': {value: getPagePath('create-account'), label: 'Create Account'}
     });
 
+	var switcher = function (context) {
+      var params = ko.unwrap(context.valueAccessor()).params;
+      if (params.ojRouter.direction === 'back') {
+        return 'navParent';
+	  } else {
+		return 'navChild';
+	  }
+	}
+
     var viewModel = {
-      router: router
+		router: router,
+		moduleConfig: ko.computed(function () {
+			return $.extend(
+				true,
+				{},
+				router.moduleConfig,
+				{ animation: oj.ModuleAnimations.switcher(switcher) }
+			)
+		})
     };
 
-    $(document).ready(function () {
+	$(document).ready(function () {
       oj.Router.sync().then(function () {
         ko.applyBindings(viewModel, document.getElementById('page'));
       });
