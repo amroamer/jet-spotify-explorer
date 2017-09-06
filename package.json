@@ -8,20 +8,29 @@
     "homepage": "http://www.enpit.de"
   },
   "scripts": {
-    "start": "grunt oraclejet-serve"
+    "start": "grunt oraclejet-serve",
+    "build:image": "docker build -t enpit/jet-spotify-app .",
+    "remove:image": "docker rmi enpit/jet-spotify-app",
+    "start:container": "docker run --name enpit-jet-spotify-app -p 8080:80 -d enpit/jet-spotify-app",
+    "stop:container": "docker rm -f enpit-jet-spotify-app"
   },
   "devDependencies": {
     "eslint": "^3.7.1",
-    "eslint-config-google": "^0.6.0",
+    "eslint-config-enpit-jet": "^1.0.0",
     "grunt": "^1.0.1",
-    "grunt-bowercopy": "1.2.4",
     "grunt-eslint": "^19.0.0",
-    "grunt-oraclejet": "~1.1.0",
+    "grunt-oraclejet": "3.0.0",
     "load-grunt-config": "0.19.2",
-    "oraclejet-tooling": "~1.1.0"
+    "oraclejet-tooling": "3.0.0"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4.0.0",
+    "npm": ">=3.0.0"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "address-form-oraclejet": "^0.2.0",
+    "knockout-postbox": "^0.5.2",
+    "oraclejet": "^3.0.0"
+  }
 }

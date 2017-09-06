@@ -11,3 +11,7 @@ hybrid/plugins/*
 !hybrid/plugins/fetch.json
 
 npm-debug.log
+
+nbproject
+
+.gitattributes

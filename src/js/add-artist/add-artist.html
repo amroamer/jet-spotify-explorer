@@ -1,0 +1,65 @@
+<h1>Interpret hinzufügen</h1>
+<div id="add-artist-container" class="oj-form-layout">
+    <div class="oj-form">
+        <div class="oj-flex">
+            <div class="oj-flex-item">
+                <label for="nameControl">Name:</label>
+                <input id="nameControl"
+                    placeholder="Name des Interpreten"
+                    data-bind="ojComponent: {
+                        component: 'ojInputText',
+                        value: name,
+                        required: true,
+                        invalidComponentTracker: tracker,
+                        rootAttributes: {style:'max-width:100%'}
+                    }">
+            </div>
+        </div>
+        <div class="oj-flex">
+            <div class="oj-flex-item">
+                <label for="genreControl">Genre:</label>
+                <select id="genreControl" data-bind="ojComponent: {
+                    component: 'ojSelect',
+                    required: true,
+                    value: genre,
+                    validator: [noDefault]
+                }">
+                <option value="default">Bitte wählen</option>
+                <option value="rock">Rock</option>
+                <option value="pop">Pop</option>
+                <option value="schlager">Schlager</option>
+            </select>
+            </div>
+            <div class="oj-flex-item">
+                <label for="yearControl">Gründungsjahr:</label>
+                <input id="yearControl" data-bind="ojComponent: {
+                    component: 'ojInputNumber',
+                    value: year,
+                    required: false,
+                    invalidComponentTracker: tracker,
+                    max: 2050,
+                    min: 1800,
+                    converter: {
+                        type: 'number',
+                        options: {
+                            style: 'decimal',
+                            roundingMode: 'HALF_DOWN',
+                            maximumFractionDigits: 0,
+                            useGrouping: false
+                        }
+                    }
+                }">
+            </div>
+        </div>
+        <div class="oj-flex">
+            <div class="oj-flex-item">
+                <button id="add-artist-button" class="oj-button oj-button-confirm" data-bind="click: save, ojComponent: {
+                    component: 'ojButton',
+                    label: 'Speichern',
+                    disabled: shouldDisableAdd()
+                }">
+            </button>
+            </div>
+        </div>
+    </div>
+</div>

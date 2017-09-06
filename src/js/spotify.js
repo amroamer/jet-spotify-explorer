@@ -1,30 +1,15 @@
 define(['jquery'], function ($) {
-  var webserviceUrl = 'https://api.spotify.com/v1/';
+  var webserviceUrl = 'http://spotify-explorer-api.herokuapp.com/';
 
   /**
    * Search the spotify database for the given query.
    * @param {string} query the query string that you want to search for
-   * @param {object} options a map (i.e. an array of arrays) containig search options (see https://developer.spotify.com/web-api/console/get-search-item/)
    * @return {Promise} a promise that resolves with the artists in JSON format
    * or rejects with an error description
    */
-  var search = function search (query, options) {
-    if (!Array.isArray(options)) {
-      console.error('Invalid options parameter ' + options);
-      return;
-    }
-
-    var q = [query].concat(
-      options.map(function (o) {
-        return o[0] + '=' + o[1];
-      })
-    ).join('&');
-    /*
-     * Do a HTTP-GET call to the spotify API with the given options
-     * The webservice returns results as a JSON string
-     */
+  var search = function search (query) {
     return $.ajax(
-      webserviceUrl + 'search?q=' + q, {
+      webserviceUrl + 'search/' + query, {
         dataType: 'json',
         method: 'GET'
       }
@@ -39,7 +24,7 @@ define(['jquery'], function ($) {
    */
   var fetchAlbumsByArtist = function fetchAlbumsByArtist (artistId) {
     return $.ajax(
-      webserviceUrl + 'artists/' + artistId + '/albums', {
+      webserviceUrl + 'fetchAlbumsByArtist/' + artistId, {
         dataType: 'json',
         method: 'GET'
       }
@@ -54,7 +39,7 @@ define(['jquery'], function ($) {
    */
   var fetchAlbumDetails = function fetchAlbumDetails (albumId) {
     return $.ajax(
-      webserviceUrl + 'albums/' + albumId, {
+      webserviceUrl + 'fetchAlbumDetails/' + albumId, {
         dataType: 'json',
         method: 'GET'
       }

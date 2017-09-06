@@ -1,0 +1,76 @@
+<div class="address-form oj-form-layout">
+    <div class="oj-form">
+        <div class="oj-flex" data-bind="if: fields.name">
+            <div class="oj-flex-item">
+                <input class="nameControl" placeholder="Your surname" data-bind="ojComponent: {
+                        component: 'ojInputText',
+                        value: name,
+                        required: fields.name.required
+                    }">
+                <input class="firstnameControl" placeholder="Your first name" data-bind="ojComponent: {
+                        component: 'ojInputText',
+                        value: firstName,
+                        required: fields.name.required
+                    }">
+            </div>
+        </div>
+        <div class="oj-flex" data-bind="if: fields.address">
+            <div class="oj-flex-item">
+                <input class="addressControl" placeholder="Address" data-bind="ojComponent: {
+                        component: 'ojInputText',
+                        value: address,
+                        required: fields.address.required
+                    }">
+            </div>
+        </div>
+        <div class="oj-flex" data-bind="if: fields.city">
+            <div class="oj-flex-item">
+                <input class="postalCodeControl" placeholder="Zip Code" data-bind="ojComponent: {
+                            component: 'ojInputNumber',
+                            value: cityCode,
+                            required: fields.city.required,
+                            rootAttributes: {style:'max-width:10em'},
+                            converter: {
+                            type: 'number',
+                                options: {
+                                    style:'decimal',
+                                    roundingMode: 'HALF_DOWN',
+                                    maximumFractionDigits: 0,
+                                    useGrouping: false
+                                }
+                            }
+                        }">
+                <input class="cityControl" placeholder="City" data-bind="ojComponent: {
+                          component: 'ojInputText',
+                          value: city,
+                          required: fields.city.required
+                      }">
+            </div>
+        </div>
+        <div class="oj-flex">
+            <div class="oj-flex-item">
+                <span data-bind="if: fields.phone">
+                    <input class="phoneControl" placeholder="Phone" data-bind="ojComponent: {
+                              component: 'ojInputText',
+                              value: phone,
+                              required: fields.phone.required
+                          }">
+                </span>
+                <span data-bind="if: fields.email">
+                    <input class="emailControl" placeholder="Email" data-bind="ojComponent: {
+                              component: 'ojInputText',
+                              value: email,
+                              required: fields.email.required
+                          }">
+                </span>
+            </div>
+        </div>
+        <button id="address-form-button" class="address-form-button oj-button oj-button-confirm" data-bind=" click: submit,
+                          ojComponent: {
+                              component: 'ojButton',
+                              label: 'Submit',
+                              disabled: !isValid()
+                          }">
+            </button>
+    </div>
+</div>
