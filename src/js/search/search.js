@@ -28,7 +28,7 @@ define([
 
     self.query.subscribe(function search () {
       self.artists.removeAll(); // clear previous search results
-      spotify.search(self.query(), [['type', 'artist']]).then(
+      spotify.search(self.query()[0]).then(
         function onFulfilled (response) {
           // filter artists
           response.artists.items.forEach(function (artist, index) {
