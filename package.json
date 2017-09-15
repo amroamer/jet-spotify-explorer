@@ -31,6 +31,6 @@
   "dependencies": {
     "address-form-oraclejet": "^0.2.0",
     "knockout-postbox": "^0.5.2",
-    "oraclejet": "^3.0.0"
+    "oraclejet": "~3.0.0"
   }
 }
